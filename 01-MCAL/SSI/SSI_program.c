@@ -30,7 +30,7 @@ u8 SSI_u8SetMasterConfigurations(const SSI_MasterConfigs_t * Copy_structSSIConfi
         /*Setting the SSI  Data Length and Frame Type*/
         SSIx[Copy_structSSIConfigurations->SSI_ID]->CR0 |= Copy_structSSIConfigurations->SSI_Frame | Copy_structSSIConfigurations->SSI_Data;
         /* Configuring the SPO and SPH */
-        //SSIx[Copy_structSSIConfigurations->SSI_ID]->CR0 |=
+         SSIx[Copy_structSSIConfigurations->SSI_ID]->CR0 |= ( Copy_structSSIConfigurations->SSI_CLKPH << SPH )| ( Copy_structSSIConfigurations->SSI_CLKPOL << SPOL);
         /* Enable the SSI   */
         SSIx[Copy_structSSIConfigurations->SSI_ID]->CR1 |=(1 << SSE);
     }
